@@ -5,13 +5,12 @@ let gridSizeValue = document.querySelector('#resolution');
 Grid(gridSizeValue.value);
 
 function generateGrid() {
-    if (gridSizeValue.value > 100 || gridSizeValue.value < 5) {
-        alert('please enter a number between 5 and 100');
+    if (gridSizeValue.value > 50 || gridSizeValue.value < 5) {
+        alert('please enter a number between 5 and 50');
         return;
     }
     display.innerHTML = "";
     gridSwitch.style.transform = '';
-
 
     Grid(gridSizeValue.value);
 }
@@ -35,10 +34,10 @@ function Grid(size) {
     // size of each generated square in pixels
     let squareSize = gridContainer.offsetWidth / size;
 
-
     for (let i = 0; i < size * size; i++) {
         let gridSquare = document.createElement('div');
         gridSquare.classList.add('gridSquare');
+        gridSquare.classList.add(`${i}gridSquare`);
         gridSquare.style.height = `${squareSize}px`;
         gridSquare.style.width = `${squareSize}px`;
         gridSquare.style.backgroundColor = '#fff';
@@ -47,87 +46,44 @@ function Grid(size) {
 
         gridContainer.appendChild(gridSquare);
     }
-
-    // knobs animation
-    let rightKnob = document.querySelector('.knob__vertical');
-    let leftKnob = document.querySelector('.knob__horizontal');
-    document.querySelector('.grid').addEventListener('mousemove', e => {
-        if(e.movementY > 0) {
-            switch(e.movementY) {
-                case 1:
-                    rightKnob.style.transform = 'rotate(15deg)';
-                case 2:
-                    rightKnob.style.transform = 'rotate(30deg)';
-                case 3:
-                    rightKnob.style.transform = 'rotate(45deg)';
-                case 4:
-                    rightKnob.style.transform = 'rotate(60deg)';
-                case 5:
-                    rightKnob.style.transform = 'rotate(75deg)';
-                case 6:
-                    rightKnob.style.transform = 'rotate(90deg)';
-                default:
-                    rightKnob.style.transform = 'rotate(120deg)';
-            }
-        } 
-        else if(e.movementY < 0) {
-            switch(e.movementY) {
-                case 1:
-                    rightKnob.style.transform = 'rotate(-15deg)';
-                case 2:
-                    rightKnob.style.transform = 'rotate(-30deg)';
-                case 3:
-                    rightKnob.style.transform = 'rotate(-45deg)';
-                case 4:
-                    rightKnob.style.transform = 'rotate(-60deg)';
-                case 5:
-                    rightKnob.style.transform = 'rotate(-75deg)';
-                case 6:
-                    rightKnob.style.transform = 'rotate(-90deg)';
-                default:
-                    rightKnob.style.transform = 'rotate(-120deg)';
-            }
-        }
-        
-        if(e.movementX > 0) {
-            switch(e.movementX) {
-                case 1:
-                    leftKnob.style.transform = 'rotate(15deg)';
-                case 2:
-                    leftKnob.style.transform = 'rotate(30deg)';
-                case 3:
-                    leftKnob.style.transform = 'rotate(45deg)';
-                case 4:
-                    leftKnob.style.transform = 'rotate(60deg)';
-                case 5:
-                    leftKnob.style.transform = 'rotate(75deg)';
-                case 6:
-                    leftKnob.style.transform = 'rotate(90deg)';
-                default:
-                    leftKnob.style.transform = 'rotate(120deg)';
-            }
-        } 
-        else if(e.movementX < 0) {
-            switch(e.movementX) {
-                case 1:
-                    leftKnob.style.transform = 'rotate(-15deg)';
-                case 2:
-                    leftKnob.style.transform = 'rotate(-30deg)';
-                case 3:
-                    leftKnob.style.transform = 'rotate(-45deg)';
-                case 4:
-                    leftKnob.style.transform = 'rotate(-60deg)';
-                case 5:
-                    leftKnob.style.transform = 'rotate(-75deg)';
-                case 6:
-                    leftKnob.style.transform = 'rotate(-90deg)';
-                default:
-                    leftKnob.style.transform = 'rotate(-120deg)';
-            }
-        }
-    });
-
 }
+
+// knobs animation
+let rightKnob = document.querySelector('.knob__vertical');
+let leftKnob = document.querySelector('.knob__horizontal');
+
+let directionX = "";
+let oldX = 0;
+
+let directionY = "";
+let oldY = 0;
+
+let mousemovemethod = function (e) {
+
+    if (e.pageX < oldX) {
+        directionX = "left"
+        // add key frame animation
+    } else if (e.pageX > oldX) {
+        directionX = "right"
+        // add key frame animation
+    }
+    
+    if (e.pageY < oldY) {
+        directionY = "up"
+        // add key frame animation
+    } else if (e.pageY > oldY) {
+        directionY = "down"
+        // add key frame animation
+    }
+
+    console.log(directionX, directionY);
+    
+
+    oldX = e.pageX;
+    oldY = e.pageY;
+}
+
+document.querySelector('.grid').addEventListener('mousemove', mousemovemethod);
 
 // grid on/off functionality
 
