@@ -121,5 +121,14 @@ colorButton.forEach(button => button.onclick = (e) => {
         e.target.classList.add('selected');
 });
 
+
 // random color generator
-// '#'+(Math.random()*0xFFFFFF<<0).toString(16);
+function randomColor() {
+    let r,g,b;
+    let rgbString;
+    r = Math.floor(Math.random()*255);
+    g = Math.floor(Math.random()*255);
+    b = Math.floor(Math.random()*255);
+    rgbString = `rgb(${r},${g},${b})`;
+    return rgbString;
+}
