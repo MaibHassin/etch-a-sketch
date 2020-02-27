@@ -18,12 +18,12 @@
 
     <main>
         <div class="reset">
-            <label for="resolution">Resolution(max 500x500):
-                <input type="number" name="height" value="16" id="resolution" class="reset__field">
-                x
-                <input type="number" name="width" value="16" id="resolution" class="reset__field">
-            </label>
-            <button class="reset__button">Reset</button>
+            <form>
+                <label for="resolution">Resolution(max limit is 100):
+                    <input type="number" name="grid-size" value="16" id="resolution" class="reset__field">
+                </label>
+                <button class="reset__button">Reset</button>
+            </form>
         </div>
 
         <div class="device">
@@ -55,37 +55,6 @@
             <div class="clear__display">Clear Display</div>
 
             <div class="switch">
-                <div class="switch__nogrid--icon">
-                    <svg width="20px" height="20px" version="1.1" viewBox="0 0 13.229 13.229"
-                        xmlns="http://www.w3.org/2000/svg">
-                        <g transform="translate(0 -283.77)">
-                            <rect y="283.51" width="13.494" height="13.494" fill="#fff" stroke="#fff"
-                                stroke-width=".79375" />
-                        </g>
-                    </svg>
-                </div>
-
-                <div class="switch__toggle">
-                    <div class="switch__path">
-                        <svg width="50px" height="50px" version="1.1" viewBox="0 0 13.229 13.229"
-                            xmlns="http://www.w3.org/2000/svg">
-                            <g transform="translate(0 -283.77)">
-                                <rect y="288" width="13" height="4.4979" ry="1.8521" fill="#ffd700"/>
-                            </g>
-                        </svg>
-                    </div>
-    
-                    <div class="switch__switch">
-                        <svg width="50" height="50" version="1.1" viewBox="0 0 13.229 13.229"
-                            xmlns="http://www.w3.org/2000/svg">
-                            <g transform="translate(0 -283.77)">
-                                <circle cx="6.7469" cy="290.25" r="3.9687" fill="#DB3A25"/>
-                            </g>
-                        </svg>
-                    </div>
-                </div>
-
-
                 <div class="switch__grid--icon">
                     <svg width="20" height="20" version="1.1" viewBox="0 0 13.229 13.229"
                         xmlns="http://www.w3.org/2000/svg">
@@ -96,7 +65,36 @@
                             <path d="m0 292.5h13.494" />
                         </g>
                     </svg>
+                </div>
 
+                <div class="switch__toggle">
+                    <div class="switch__path">
+                        <svg width="50px" height="50px" version="1.1" viewBox="0 0 13.229 13.229"
+                            xmlns="http://www.w3.org/2000/svg">
+                            <g transform="translate(0 -283.77)">
+                                <rect y="288" width="13" height="4.4979" ry="1.8521" fill="#ffd700" />
+                            </g>
+                        </svg>
+                    </div>
+
+                    <div class="switch__switch">
+                        <svg width="50" height="50" version="1.1" viewBox="0 0 13.229 13.229"
+                            xmlns="http://www.w3.org/2000/svg">
+                            <g transform="translate(0 -283.77)">
+                                <circle cx="6.7469" cy="290.25" r="3.9687" fill="#DB3A25" />
+                            </g>
+                        </svg>
+                    </div>
+                </div>
+
+                <div class="switch__nogrid--icon">
+                    <svg width="20px" height="20px" version="1.1" viewBox="0 0 13.229 13.229"
+                        xmlns="http://www.w3.org/2000/svg">
+                        <g transform="translate(0 -283.77)">
+                            <rect y="283.51" width="13.494" height="13.494" fill="#fff" stroke="#fff"
+                                stroke-width=".79375" />
+                        </g>
+                    </svg>
                 </div>
             </div>
         </div>

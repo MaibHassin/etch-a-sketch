@@ -198,13 +198,14 @@ body {
 
 .switch .switch__toggle .switch__switch {
     position: absolute;
+    transform: translateX(0px);
 }
 
 .switch .switch__toggle .switch__switch:hover {
-    transform: scale(0.9);
+    opacity: 0.9;
 }
 
 .switch .switch__toggle .switch__switch:active {
-    transform: scale(1.1);
-    transform: translateX(18px);
+    /* transform: scale(1.1); */
+    /* transform: translateX(18px); */
 }
