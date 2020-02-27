@@ -1,11 +1,13 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="css/main.css">
     <title>Etch-A-Sketch</title>
 </head>
+
 <body>
     <header>
         <div class="heading">
@@ -13,7 +15,7 @@
             <h3 class="heading__sub">by Maib Hassin</h3>
         </div>
     </header>
-    
+
     <main>
         <div class="reset">
             <label for="resolution">Resolution(max 500x500):
@@ -53,13 +55,53 @@
             <div class="clear__display">Clear Display</div>
 
             <div class="switch">
-                <div class="switch__nogrid--icon"></div>
-                <div class="switch__path"></div>
-                <div class="switch__switch"></div>
-                <div class="switch__grid--icon"></div>
+                <div class="switch__nogrid--icon">
+                    <svg width="20px" height="20px" version="1.1" viewBox="0 0 13.229 13.229"
+                        xmlns="http://www.w3.org/2000/svg">
+                        <g transform="translate(0 -283.77)">
+                            <rect y="283.51" width="13.494" height="13.494" fill="#fff" stroke="#fff"
+                                stroke-width=".79375" />
+                        </g>
+                    </svg>
+                </div>
+
+                <div class="switch__toggle">
+                    <div class="switch__path">
+                        <svg width="50px" height="50px" version="1.1" viewBox="0 0 13.229 13.229"
+                            xmlns="http://www.w3.org/2000/svg">
+                            <g transform="translate(0 -283.77)">
+                                <rect y="288" width="13" height="4.4979" ry="1.8521" fill="#ffd700"/>
+                            </g>
+                        </svg>
+                    </div>
+    
+                    <div class="switch__switch">
+                        <svg width="50" height="50" version="1.1" viewBox="0 0 13.229 13.229"
+                            xmlns="http://www.w3.org/2000/svg">
+                            <g transform="translate(0 -283.77)">
+                                <circle cx="6.7469" cy="290.25" r="3.9687" fill="#DB3A25"/>
+                            </g>
+                        </svg>
+                    </div>
+                </div>
+
+
+                <div class="switch__grid--icon">
+                    <svg width="20" height="20" version="1.1" viewBox="0 0 13.229 13.229"
+                        xmlns="http://www.w3.org/2000/svg">
+                        <g transform="translate(0 -283.77)" stroke="#fff" stroke-width="1px">
+                            <path d="m4.4979 283.51v13.494" />
+                            <path d="m8.9958 283.51v13.494" />
+                            <path d="m13.494 288h-13.494" />
+                            <path d="m0 292.5h13.494" />
+                        </g>
+                    </svg>
+
+                </div>
             </div>
         </div>
     </main>
     <script src="js/script.js"></script>
 </body>
+
 </html>

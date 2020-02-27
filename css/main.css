@@ -179,3 +179,32 @@ body {
 .controls .clear__display:active {
     transform: scale(1.2);
 }
+
+/* grid nogrid switch */
+.switch {
+    display: flex;
+    align-items: center;
+}
+
+.switch .switch__toggle {
+    display: flex;
+    align-items: center;
+    position: relative;
+}
+
+.switch .switch__toggle .switch__path {
+    padding: 0 10px;
+}
+
+.switch .switch__toggle .switch__switch {
+    position: absolute;
+}
+
+.switch .switch__toggle .switch__switch:hover {
+    transform: scale(0.9);
+}
+
+.switch .switch__toggle .switch__switch:active {
+    transform: scale(1.1);
+    transform: translateX(18px);
+}
