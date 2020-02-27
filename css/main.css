@@ -24,6 +24,37 @@ body {
 
 /* main */
 
+/* reset */
+.reset {
+    margin: auto;
+    text-align: center;
+    padding: 8px;
+}
+
+.reset__field {
+    width: 50px;
+}
+
+.reset__button {
+    border: none;
+    background-color: #DB3A25;
+    color: #ffd700;
+    font-weight: bold;
+    padding: 4px;
+    border: 1px solid #ffd700;
+    border-radius: 3px;
+    transition: transform 100ms ease-in-out;
+}
+
+.reset__button:hover {
+    transform: scale(1.1);
+}
+
+.reset__button:active {
+    color: #DB3A25;
+    background-color: #ffd700;
+}
+
 .device {
     width: 700px;
     background-color: #DB3A25;
