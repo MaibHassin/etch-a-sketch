@@ -1,6 +1,7 @@
 let display = document.querySelector('.display');
 let gridSwitch = document.querySelector('.switch__switch');
 let gridSizeValue = document.querySelector('#resolution');
+let selectedColor = '#000';
 
 Grid(gridSizeValue.value);
 
@@ -83,7 +84,7 @@ let mousemovemethod = function (e) {
     oldY = e.pageY;
 }
 
-document.querySelector('.grid').addEventListener('mousemove', mousemovemethod);
+// document.querySelector('.grid').addEventListener('mousemove', mousemovemethod);
 
 // grid on/off functionality
 
@@ -103,3 +104,16 @@ gridSwitch.onclick = () => {
         });
     }
 }
+
+// select color
+let colorButton = document.querySelectorAll('.color__button');
+
+colorButton.forEach(button => button.onclick = (e) => {
+        selectedColor = e.target.dataset.color
+        document.querySelector('.selected').classList.remove('selected');
+        e.target.classList.add('selected');
+        console.log(selectedColor);
+});
+
+// random color generator
+// '#'+(Math.random()*0xFFFFFF<<0).toString(16);
