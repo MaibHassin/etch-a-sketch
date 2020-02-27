@@ -1,12 +1,10 @@
 let display = document.querySelector('.display');
 let gridSwitch = document.querySelector('.switch__switch');
 let gridSizeValue = document.querySelector('#resolution');
-let selectedColor = '#000';
+let selectedColor = document.querySelector('.selected').dataset.color;
 
 document.addEventListener('DOMContentLoaded', (e) => {
-    // test();
-    selectColor()
-    sketching();
+    sketching(selectedColor);
 });
 Grid(gridSizeValue.value);
 
@@ -21,9 +19,7 @@ function generateGrid() {
     gridSwitch.style.transform = '';
     
     Grid(gridSizeValue.value);
-    selectColor()
-    sketching();
-    // test();
+    sketching(selectedColor);
 }
 
 document.querySelector('.reset__button').onclick = () => {
@@ -122,16 +118,15 @@ gridSwitch.onclick = () => {
 }
 
 // select color
-function selectColor() {
-    let colorButton = document.querySelectorAll('.color__button');
-    
-    colorButton.forEach(button => button.onclick = (e) => {
-        selectedColor = e.target.dataset.color
-        document.querySelector('.selected').classList.remove('selected');
-        e.target.classList.add('selected');
-    });
-}
+let colorButton = document.querySelectorAll('.color__button');
 
+colorButton.forEach(button => button.onclick = (e) => {
+    document.querySelector('.selected').classList.remove('selected');
+    e.target.classList.add('selected');
+    selectedColor = e.target.dataset.color;
+    console.log(selectedColor);
+    sketching(selectedColor)
+});
 
 // random color generator
 function randomColor() {
@@ -145,16 +140,16 @@ function randomColor() {
 }
 
 // sketching
-function sketching() {
+function sketching(color) {
     let gridPixel = document.querySelectorAll('.gridSquare');
     
     
     gridPixel.forEach(pixel => pixel.onmouseover = (e) => {
-        if (selectedColor == 'random') {
+        if (color == 'random') {
             document.querySelector('.grid').addEventListener('mousemove', function () {
-                selectedColor = randomColor();
+                color = randomColor();
             });
         }
-        e.target.style.backgroundColor = selectedColor;
+        e.target.style.backgroundColor = color;
     });
 }
