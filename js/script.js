@@ -16,10 +16,17 @@ function generateGrid() {
     Grid(gridSizeValue.value);
 }
 
-document.querySelector('.reset__button').onclick = (e) => {
+document.querySelector('.reset__button').onclick = () => {
     generateGrid();
     // return false to stop page from refreshing after pressing the enter button to submit the resolution size
     return false;
+}
+
+document.querySelector('.clear__display').onclick = () => {
+    display.innerHTML = "";
+    gridSwitch.style.transform = '';
+
+    Grid(gridSizeValue.value);
 }
 
 function Grid(size) {
@@ -112,7 +119,6 @@ colorButton.forEach(button => button.onclick = (e) => {
         selectedColor = e.target.dataset.color
         document.querySelector('.selected').classList.remove('selected');
         e.target.classList.add('selected');
-        console.log(selectedColor);
 });
 
 // random color generator

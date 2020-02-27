@@ -175,6 +175,7 @@ body {
 
 .controls .clear__display {
     background-color: #1434c4;
+    color: #fff;
     padding: 8px;
     border: 2px solid #fff;
     border-radius: 4px;
