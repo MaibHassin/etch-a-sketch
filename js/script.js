@@ -3,17 +3,27 @@ let gridSwitch = document.querySelector('.switch__switch');
 let gridSizeValue = document.querySelector('#resolution');
 let selectedColor = '#000';
 
+document.addEventListener('DOMContentLoaded', (e) => {
+    // test();
+    selectColor()
+    sketching();
+});
 Grid(gridSizeValue.value);
 
 function generateGrid() {
-    if (gridSizeValue.value > 50 || gridSizeValue.value < 5) {
-        alert('please enter a number between 5 and 50');
+    if (gridSizeValue.value > 70 || gridSizeValue.value < 5) {
+        alert('please enter a number between 5 and 70');
         return;
     }
-    display.innerHTML = "";
+    if (display.hasChildNodes()) {
+        display.removeChild(document.querySelector('.grid'));
+    }
     gridSwitch.style.transform = '';
-
+    
     Grid(gridSizeValue.value);
+    selectColor()
+    sketching();
+    // test();
 }
 
 document.querySelector('.reset__button').onclick = () => {
@@ -23,10 +33,7 @@ document.querySelector('.reset__button').onclick = () => {
 }
 
 document.querySelector('.clear__display').onclick = () => {
-    display.innerHTML = "";
-    gridSwitch.style.transform = '';
-
-    Grid(gridSizeValue.value);
+    generateGrid();
 }
 
 function Grid(size) {
@@ -75,7 +82,7 @@ let mousemovemethod = function (e) {
         directionX = "right"
         // add key frame animation
     }
-    
+
     if (e.pageY < oldY) {
         directionY = "up"
         // add key frame animation
@@ -85,13 +92,15 @@ let mousemovemethod = function (e) {
     }
 
     console.log(directionX, directionY);
-    
+
 
     oldX = e.pageX;
     oldY = e.pageY;
 }
 
-// document.querySelector('.grid').addEventListener('mousemove', mousemovemethod);
+function test() {
+    document.querySelector('.grid').addEventListener('mousemove', mousemovemethod);
+}
 
 // grid on/off functionality
 
@@ -113,22 +122,39 @@ gridSwitch.onclick = () => {
 }
 
 // select color
-let colorButton = document.querySelectorAll('.color__button');
-
-colorButton.forEach(button => button.onclick = (e) => {
+function selectColor() {
+    let colorButton = document.querySelectorAll('.color__button');
+    
+    colorButton.forEach(button => button.onclick = (e) => {
         selectedColor = e.target.dataset.color
         document.querySelector('.selected').classList.remove('selected');
         e.target.classList.add('selected');
-});
+    });
+}
 
 
 // random color generator
 function randomColor() {
-    let r,g,b;
+    let r, g, b;
     let rgbString;
-    r = Math.floor(Math.random()*255);
-    g = Math.floor(Math.random()*255);
-    b = Math.floor(Math.random()*255);
+    r = Math.floor(Math.random() * 255);
+    g = Math.floor(Math.random() * 255);
+    b = Math.floor(Math.random() * 255);
     rgbString = `rgb(${r},${g},${b})`;
     return rgbString;
+}
+
+// sketching
+function sketching() {
+    let gridPixel = document.querySelectorAll('.gridSquare');
+    
+    
+    gridPixel.forEach(pixel => pixel.onmouseover = (e) => {
+        if (selectedColor == 'random') {
+            document.querySelector('.grid').addEventListener('mousemove', function () {
+                selectedColor = randomColor();
+            });
+        }
+        e.target.style.backgroundColor = selectedColor;
+    });
 }
