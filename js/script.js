@@ -52,7 +52,8 @@ function Grid(size) {
         gridSquare.style.height = `${squareSize}px`;
         gridSquare.style.width = `${squareSize}px`;
         gridSquare.style.backgroundColor = '#fff';
-        gridSquare.style.border = '0.5px solid #d9d9d9';
+        gridSquare.style.border = '1px solid #d9d9d9';
+        gridSquare.style.opacity = 1;
         gridSquare.style.zIndex = 2;
 
         gridContainer.appendChild(gridSquare);
@@ -124,7 +125,8 @@ colorButton.forEach(button => button.onclick = (e) => {
     document.querySelector('.selected').classList.remove('selected');
     e.target.classList.add('selected');
     selectedColor = e.target.dataset.color;
-    console.log(selectedColor);
+    console.log(e.target.dataset.color);
+    
     sketching(selectedColor)
 });
 

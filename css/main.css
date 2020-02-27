@@ -152,6 +152,10 @@ body {
     background: linear-gradient(0deg, rgba(255, 0, 0, 1) 0%, rgba(255, 228, 0, 1) 10%, rgba(84, 255, 0, 1) 20%, rgba(0, 255, 241, 1) 30%, rgba(0, 84, 255, 1) 40%, rgba(104, 0, 255, 1) 50%, rgba(254, 0, 255, 1) 60%, rgba(255, 0, 140, 1) 70%, rgba(255, 0, 0, 1) 80%, rgba(0, 0, 0, 1) 90%, rgba(255, 255, 255, 1) 100%);
 }
 
+.controls .color .color__pctBlack {
+    background: linear-gradient(90deg, rgba(255, 255, 255, 1) 20%, rgba(0, 0, 0, 1) 100%)
+}
+
 .controls .color .color__button.selected {
     border: 5px solid gold;
     transform: scale(1.1);
